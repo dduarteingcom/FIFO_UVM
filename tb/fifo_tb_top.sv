@@ -21,6 +21,7 @@ module fifo_tb_top;
         .tail_idx(if.tail_idx),
         .valid(if.valid)
     );
+
     //Clock generation;
     initial if.clk = 0;
     always #5 if.clk = ~if.clk;
@@ -33,7 +34,8 @@ module fifo_tb_top;
     end
     //Start UVM
     initial begin
-        run_test();
+        uvm_config_db#(virtual fifo_if)::set(null, "*", "vif", if);
+        run_test("fifo_test");
     end
     
 endmodule

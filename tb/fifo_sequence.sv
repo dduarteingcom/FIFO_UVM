@@ -1,3 +1,6 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class fifo_sequence extends uvm_sequence#(fifo_txn);
     fifo_txn req;
 

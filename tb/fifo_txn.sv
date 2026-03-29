@@ -1,5 +1,7 @@
-class fifo_txn  extends uvm_sequence_item;
+`include "uvm_macros.svh"
+import uvm_pkg::*;
 
+class fifo_txn  extends uvm_sequence_item;
     rand logic write;
     rand logic read;
     rand logic [WIDTH-1:0] data;

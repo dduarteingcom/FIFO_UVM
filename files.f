@@ -1,0 +1,10 @@
+tb/fifo_if.sv
+rtl/FIFO.sv
+tb/fifo_txn.sv
+tb/fifo_sequence.sv
+tb/fifo_sequencer.sv
+tb/fifo_driver.sv
+tb/fifo_agent.sv
+tb/fifo_env.sv
+tb/fifo_test.sv
+tb/fifo_tb_top.sv

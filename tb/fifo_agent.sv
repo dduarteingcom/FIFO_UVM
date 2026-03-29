@@ -1,3 +1,6 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class fifo_agent extends uvm_agent;
     fifo_sequencer sqr_h;
     fifo_driver drv_h;

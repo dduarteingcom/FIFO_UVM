@@ -1,3 +1,6 @@
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
 class fifo_driver extends uvm_driver #(fifo_txn);
 
     `uvm_component_utils(fifo_driver);

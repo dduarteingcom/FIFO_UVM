@@ -1,3 +1,6 @@
+`include "uvm_macros.svh"
+import uvm_pkh::*;
+
 module fifo_tb_top;
 
     //Parameters

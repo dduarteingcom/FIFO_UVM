@@ -1,5 +1,5 @@
 `include "uvm_macros.svh"
-import uvm_pkh::*;
+import uvm_pkg::*;
 
 module fifo_tb_top;
 

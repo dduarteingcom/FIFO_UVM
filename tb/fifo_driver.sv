@@ -17,7 +17,7 @@ class fifo_driver extends uvm_driver #(fifo_txn);
         super.build_phase(phase);
 
         if(!uvm_config_db#(virtual fifo_if)::get(this, "", "vif", vif))begin
-            uvm_fatal(get_type_name(), "Virtual interface not set");
+            uvm_fatal(get_type_name(), "Virtual interface not set")
         end
     endfunction
 
@@ -33,10 +33,11 @@ class fifo_driver extends uvm_driver #(fifo_txn);
             vif.w_enable = req.write;
             vif.r_enable = req.read;
             vif.w_data = req.data;
+            vif.key = req.key;
             vif.downstream_ready = 1;
 
             @(posedge vif.clk);
-            `uvm_info(get_type_name(), "Transaction completed at DUT boundary", UVM_LOW);
+            `uvm_info(get_type_name(), "Transaction completed at DUT boundary", UVM_LOW)
             seq_item_port.item_done();
 
             @(negedge vif.clk);

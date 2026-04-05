@@ -8,36 +8,36 @@ module fifo_tb_top;
     localparam int DEPTH = 4;
 
     //Interface instance
-    fifo_if #(WIDTH, DEPTH) if();
+    fifo_if #(WIDTH, DEPTH) dut_if();
 
     //DUT instation
     FIFO dut(
-        .clk(if.clk),
-        .rst_n(if.rst_n),
-        .w_data(if.w_data),
-        .w_enable(if.w_enable),
-        .r_enable(if.r_enable),
-        .downstream_ready(if.downstream_ready),
-        .key(if.key),
-        .processed_data(if.processed_data),
-        .head_idx(if.head_idx),
-        .tail_idx(if.tail_idx),
-        .valid(if.valid)
+        .clk(dut_if.clk),
+        .rst_n(dut_if.rst_n),
+        .w_data(dut_if.w_data),
+        .w_enable(dut_if.w_enable),
+        .r_enable(dut_if.r_enable),
+        .downstream_ready(dut_if.downstream_ready),
+        .key(dut_if.key),
+        .processed_data(dut_if.processed_data),
+        .head_idx(dut_if.head_idx),
+        .tail_idx(dut_if.tail_idx),
+        .valid(dut_if.valid)
     );
 
     //Clock generation;
-    initial if.clk = 0;
-    always #5 if.clk = ~if.clk;
+    initial dut_if.clk = 0;
+    always #5 dut_if.clk = ~dut_if.clk;
 
     //Reset
     initial begin
-        if.rst_n = 0;
+        dut_if.rst_n = 0;
         #20; 
-        if.rst_n = 1;
+        dut_if.rst_n = 1;
     end
     //Start UVM
     initial begin
-        uvm_config_db#(virtual fifo_if)::set(null, "*", "vif", if);
+        uvm_config_db#(virtual fifo_if)::set(null, "*", "vif", dut_if);
         run_test("fifo_test");
     end
     

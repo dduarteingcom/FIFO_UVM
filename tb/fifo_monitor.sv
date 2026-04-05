@@ -13,7 +13,7 @@ function new(string name = "fifo_monitor", uvm_component parent);
     monitor_p = new("monitor_p", this);
 endfunction
 
-function build_phase(uvm_phase phase);
+function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     if(!uvm_config_db#(virtual fifo_if)::get(this, "", "vif", vif))begin
         `uvm_fatal("NO_VIF", "Virtual interface not received in monitor");

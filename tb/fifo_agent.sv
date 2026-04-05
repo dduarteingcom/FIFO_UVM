@@ -18,7 +18,7 @@ class fifo_agent extends uvm_agent;
         super.build_phase(phase);
         sqr_h = fifo_sequencer::type_id::create("sqr_h", this);
         drv_h = fifo_driver::type_id::create("drv_h", this);
-        mtr_h = fifo:monitor::type_id::create("mtr_h", this):
+        mtr_h = fifo_monitor::type_id::create("mtr_h", this);
         agt_ap = new("agt_ap", this);
     endfunction
 

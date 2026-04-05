@@ -15,7 +15,7 @@ class fifo_test extends uvm_test;
         super.build_phase(phase);
         set_type_override_by_type(fifo_driver::get_type(), fifo_driver2::get_type());
 
-        uvm_factory::get.print();
+        uvm_factory::get().print();
 
         env_h = fifo_env::type_id::create("env_h", this);
         seq_h = fifo_sequence::type_id::create("seq_h");
